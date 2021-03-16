@@ -1,11 +1,16 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'byu-oit/github-action-package-json'
+description: 'Parses and outputs information from a package.json file'
+author: 'Brigham Young University'
 inputs:
-  milliseconds: # change this
-    required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+  directory:
+    required: false
+    description: 'Specifies the directory to look for a package.json. Defaults to the current working directory.'
+  version:
+    required: false
+    description: 'Toggles the version module to output version information.'
+outputs:
+  version:
+    description: 'A rich version object which includes the version, major, minor, patch, build, and prerelease properties from the Semver class in the semver module (see semver/functions/parse for more information).'
 runs:
   using: 'node12'
   main: 'dist/index.js'
