@@ -6,7 +6,34 @@
 
 Parses and outputs information from a package.json file
 
-### Inputs
+## Usage
+
+```yaml
+on: push
+# ...
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Parse package.json version
+        id: package
+        uses: byu-oit/github-action-package-json@v1
+        with:
+          version: true
+
+      - name: Build and push docker image with version tags
+        env:
+          # set ECR_REGISTRY
+          # set ECR_REPO
+          VERSION_TAG: ${{ fromJSON(steps.package.outputs.version).version }}
+          MAJOR_TAG: ${{ fromJSON(steps.package.outputs.version).major }}
+          MINOR_TAG: ${{ fromJSON(steps.package.outputs.version).minor }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPO:$VERSION_TAG -t $ECR_REGISTRY/$ECR_REPO:v$MAJOR_TAG -t $ECR_REGISTRY/$ECR_REPO:v$MAJOR_TAG.$MINOR_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPO --all-tags
+```
+
+## Inputs
 
 | Name      | Description                                               | Default                                    |
 |:----------|:----------------------------------------------------------|:-------------------------------------------|
@@ -14,7 +41,7 @@ Parses and outputs information from a package.json file
 | version   | Toggles the version module to output version information. | false                                      |
 
 
-### Outputs
+## Outputs
 All outputs are converted to `string` using `JSON.stringify`
 
 | Name    | Type                                                           | Description                                                                                                                                                             |
