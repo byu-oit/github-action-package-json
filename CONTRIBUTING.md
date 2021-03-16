@@ -103,3 +103,22 @@ See the [actions tab](https://github.com/actions/typescript-action/actions) for 
 ## Usage:
 
 After testing you can [create a v1 tag](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md) to reference the stable and latest V1 action
+
+Add a new tag representing the major (v1), minor (v1.0), and patch (v1.0.0) versions.
+
+Example:
+```bash
+# New version
+git tag -a v1.0.0 -m "Release v1.0.0"
+git push origin v1.0.0
+
+# Update minor version tag
+git tag -fa v1.0 -m "Update v1.0 tag"
+git push origin v1.0 --force
+
+# Update major version tag
+git tag -fa v1 -m "Update v1 tag"
+git push origin v1 --force
+
+# Git Tagging Docs: https://git-scm.com/book/en/v2/Git-Basics-Tagging
+```
