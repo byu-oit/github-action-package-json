@@ -14,5 +14,5 @@ test('throws invalid semver format', async () => {
 test('sets output of properly formatted semver', async () => {
   const setOutput = jest.spyOn(core, 'setOutput')
   await version({version: '1.0.0'})
-  await expect(setOutput).toBeCalledTimes(1)
+  await expect(setOutput).toBeCalledTimes(6)
 })
