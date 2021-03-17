@@ -25,9 +25,9 @@ jobs:
         env:
           # set ECR_REGISTRY
           # set ECR_REPO
-          VERSION_TAG: ${{ fromJSON(steps.package.outputs.version).version }}
-          MAJOR_TAG: ${{ fromJSON(steps.package.outputs.version).major }}
-          MINOR_TAG: ${{ fromJSON(steps.package.outputs.version).minor }}
+          VERSION_TAG: ${{ steps.package.outputs.version }}
+          MAJOR_TAG: ${{ steps.package.outputs.version_major }}
+          MINOR_TAG: ${{ steps.package.outputs.version_minor }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPO:$VERSION_TAG -t $ECR_REGISTRY/$ECR_REPO:v$MAJOR_TAG -t $ECR_REGISTRY/$ECR_REPO:v$MAJOR_TAG.$MINOR_TAG .
           docker push $ECR_REGISTRY/$ECR_REPO --all-tags

@@ -13,12 +13,10 @@ export const version: Setter = pkg => {
   }
 
   const {version: pkgVersion, major, minor, patch, build, prerelease} = semver
-  core.setOutput('version', {
-    version: pkgVersion,
-    major,
-    minor,
-    patch,
-    build,
-    prerelease
-  })
+  core.setOutput('version', pkgVersion)
+  core.setOutput('version_major', major)
+  core.setOutput('version_minor', minor)
+  core.setOutput('version_patch', patch)
+  core.setOutput('version_build', build)
+  core.setOutput('version_prerelease', prerelease)
 }
