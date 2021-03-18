@@ -42,8 +42,16 @@ jobs:
 
 
 ## Outputs
-All outputs are converted to `string` using `JSON.stringify`
 
-| Name    | Type                                                           | Description                                                                                                                                                             |
-|:--------|:---------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| version | [Semver \| null](https://github.com/npm/node-semver#functions) | An object containing the version, major, minor, patch, build, adn prerelease properties from the parsed Semver. If the string cannot be parsed, it will be set to null. |
+All outputs are converted to `string` using `JSON.stringify` but can be
+converted to their output types using the `fromJson` method.
+
+| Name               | Type     | Description                     |
+|:-------------------|:---------|:--------------------------------|
+| version            | string   | The full semantic version       |
+| version_major      | number   | The major semantic version      |
+| version_minor      | number   | The minor semantic version      |
+| version_patch      | number   | The patch semantic version      |
+| version_build      | string[] | The build semantic version      |
+| version_prerelease | string[] | The prerelease semantic version |
+
