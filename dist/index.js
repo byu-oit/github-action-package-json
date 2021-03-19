@@ -133,8 +133,8 @@ const version = pkg => {
     core.setOutput('version_major', major);
     core.setOutput('version_minor', minor);
     core.setOutput('version_patch', patch);
-    core.setOutput('version_build', build);
-    core.setOutput('version_prerelease', prerelease);
+    core.setOutput('version_build', build.join('.'));
+    core.setOutput('version_prerelease', prerelease.join('.'));
 };
 exports.version = version;
 
