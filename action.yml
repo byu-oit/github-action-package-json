@@ -2,10 +2,6 @@ name: 'byu-oit/github-action-package-json'
 description: 'Parses and outputs information from a package.json file'
 author: 'Brigham Young University'
 inputs:
-  directory:
-    required: false
-    description: 'Specifies the directory to look for a package.json. Defaults to the current working directory.'
-    default: 'false'
   version:
     required: false
     description: 'Toggles the version module to output version information.'
@@ -13,5 +9,5 @@ outputs:
   version:
     description: 'A rich version object which includes the version, major, minor, patch, build, and prerelease properties from the Semver class in the semver module (see semver/functions/parse for more information).'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'

@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Parse package.json version
         id: package
-        uses: byu-oit/github-action-package-json@v1
+        uses: byu-oit/github-action-package-json@v2
         with:
           version: true
 
@@ -37,7 +37,6 @@ jobs:
 
 | Name      | Description                                               | Default                                    |
 |:----------|:----------------------------------------------------------|:-------------------------------------------|
-| directory | The working directory of the package.json file            | Current working directory  `process.cwd()` |
 | version   | Toggles the version module to output version information. | false                                      |
 
 
@@ -55,3 +54,11 @@ converted to their output types using the `fromJson` method.
 | version_build      | string | The build semantic version      |
 | version_prerelease | string | The prerelease semantic version |
 
+
+## Contributing
+
+This package only parses and exposes information from the package.json file based on what "setters" are available in the
+`src/setters/index.ts` file. All setters are must be disabled by default to allow the consuming action to toggle only the
+package.json fields that it requires, thus decreasing the duration of the action and speeding up the consuming workflow.
+
+**To parse and expose additional fields from the package.json file, please create a PR with new a setter.**

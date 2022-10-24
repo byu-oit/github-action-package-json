@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
 import * as Semver from 'semver'
-import {Setter} from './setter'
+import { Setter } from './setter'
 
 export const version: Setter = pkg => {
   if (typeof pkg.version !== 'string') {
@@ -8,11 +8,11 @@ export const version: Setter = pkg => {
   }
 
   const semver = Semver.parse(pkg.version)
-  if (!semver) {
+  if (semver == null) {
     throw Error(`Invalid semantic version "${pkg.version}"`)
   }
 
-  const {version: pkgVersion, major, minor, patch, build, prerelease} = semver
+  const { version: pkgVersion, major, minor, patch, build, prerelease } = semver
   core.setOutput('version', pkgVersion)
   core.setOutput('version_major', major)
   core.setOutput('version_minor', minor)
