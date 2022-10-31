@@ -13,12 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/byu-oit/github-action-package-json.git"
   },
   "keywords": [
     "actions",
-    "node",
-    "setup"
+    "package",
+    "json",
+    "version",
+    "semver"
   ],
   "author": "Brigham Young University",
   "contributors": [
