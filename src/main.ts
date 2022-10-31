@@ -11,7 +11,7 @@ import {
 function run (): void {
   try {
     const dir = core.getInput('directory', { required: false })
-    const file = dir != null
+    const file = dir !== ''
       ? path.join(process.cwd(), dir, 'package.json')
       : path.join(process.cwd(), 'package.json')
     const content = readFileSync(file, { encoding: 'utf-8' })
