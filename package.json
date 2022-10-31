@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "jest",
-    "all": "npm run lint && npm test && npm run build && npm run package"
+    "all": "npm run lint && npm test && npm run build"
   },
   "repository": {
     "type": "git",
