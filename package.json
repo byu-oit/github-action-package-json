@@ -1,6 +1,6 @@
 {
   "name": "@byu-oit/github-action-package-json",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "description": "Parses and outputs information from a package.json file",
   "main": "dist/index.js",
