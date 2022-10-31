@@ -10,7 +10,10 @@ import {
 
 function run (): void {
   try {
-    const file = path.join(process.cwd(), 'package.json')
+    const dir = core.getInput('directory', { required: false })
+    const file = dir != null
+      ? path.join(process.cwd(), dir, 'package.json')
+      : path.join(process.cwd(), 'package.json')
     const content = readFileSync(file, { encoding: 'utf-8' })
     const pkg = JSON.parse(content)
     const setterNames = Object.keys(setters)

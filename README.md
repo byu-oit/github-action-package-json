@@ -37,6 +37,7 @@ jobs:
 
 | Name      | Description                                               | Default                                    |
 |:----------|:----------------------------------------------------------|:-------------------------------------------|
+| directory | The working directory of the package.json file            | Current working directory  `process.cwd()` |
 | version   | Toggles the version module to output version information. | false                                      |
 
 

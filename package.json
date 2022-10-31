@@ -3,12 +3,11 @@
   "version": "2.0.0",
   "private": true,
   "description": "Parses and outputs information from a package.json file",
-  "main": "lib/main.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && ncc build src/main.ts --out dist --minify && rimraf tmp",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "package": "ncc build src/main.ts --out dist --minify",
     "test": "jest",
     "all": "npm run lint && npm test && npm run build && npm run package"
   },
