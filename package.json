@@ -37,7 +37,7 @@
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
     "@types/jest": "^29.2.0",
-    "@types/node": "^18.11.4",
+    "@types/node": "^20.2.3",
     "@types/semver": "^7.3.4",
     "@vercel/ncc": "^0.34.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
